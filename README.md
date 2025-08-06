@@ -1,14 +1,35 @@
-# Wi-Fi 室內定位系統
+# Wi-Fi 室內定位系統 📡
 
 ![Android](https://img.shields.io/badge/Platform-Android-3DDC84?logo=android)
 ![Kotlin](https://img.shields.io/badge/Language-Kotlin-0095D5?logo=kotlin)
 ![Compose](https://img.shields.io/badge/UI-Jetpack%20Compose-4285F4?logo=jetpack-compose)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
+![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen)
+
+## 📋 目錄
+
+- [專案概述](#-專案概述)
+- [功能亮點](#-功能亮點)
+- [系統需求](#-系統需求)
+- [安裝指南](#-安裝指南)
+- [使用說明](#-使用說明)
+- [技術架構](#-技術架構)
+- [定位演算法](#-定位演算法)
+- [開發資訊](#-開發資訊)
+- [注意事項](#-注意事項)
+- [授權條款](#-授權條款)
 
 ## 📱 專案概述
 
-Wi-Fi 室內定位系統是一個基於 Wi-Fi 訊號強度的室內位置識別應用程式。在 GPS 訊號無法有效覆蓋的室內環境中，本系統利用環境中的 Wi-Fi 訊號特徵建立「電子指紋」，實現高精度的室內位置確定。
+Wi-Fi 室內定位系統是一款專為室內環境設計的高精度定位應用。在 GPS 訊號受限的室內空間中，本系統透過分析周圍 Wi-Fi 網路的訊號特徵建立「電子指紋地圖」，實現精確的室內位置識別。
 
-## ✨ 核心功能
+適用場景：
+- 大型商場及展覽館導航
+- 醫院、學校等複雜建築物內部定位
+- 倉儲物流中心的資產追蹤
+- 智慧建築內位置感知服務
+
+## ✨ 功能亮點
 
 ### 參考點管理
 - **建立參考點**：在室內地圖上標記位置參考點，記錄對應的 Wi-Fi 訊號特徵
@@ -46,23 +67,34 @@ Wi-Fi 室內定位系統是一個基於 Wi-Fi 訊號強度的室內位置識別�
 - **自訂檔案名稱**：使用者可以自訂匯出檔案的名稱
 - **靈活儲存位置**：使用系統檔案選擇器選擇匯出檔案的儲存位置
 
-## 🛠️ 技術規格
+## 🔧 系統需求
 
-### 系統需求
 - **作業系統**：Android 12.0 (API 31) 或更高版本
-- **硬體要求**：支援 Wi-Fi 的 Android 裝置
-- **權限**：位置權限 (用於 Wi-Fi 掃描)、儲存權限 (用於資料匯出)
+- **硬體要求**：支援 Wi-Fi 的 Android 裝置，建議 4GB+ RAM
+- **儲存空間**：應用本身佔用約 50MB，資料儲存視參考點數量而定
+- **權限需求**：
+  - 精確位置權限 (用於 Wi-Fi 掃描)
+  - 儲存權限 (用於資料匯出/匯入)
+  - 背景掃描權限 (用於持續定位)
 
-### 開發技術
-- **程式語言**：Kotlin
-- **UI 框架**：Jetpack Compose 與 Material Design 3
-- **資料儲存**：Room 資料庫
-- **序列化**：JSON 處理
-- **非同步處理**：Kotlin Coroutines
-- **地圖互動**：TouchImageView 自定義實現
-- **位置演算法**：加權 k-NN (k-最近鄰) 演算法
+## 📥 安裝指南
 
-## 📋 使用指南
+### 方法一：從 Release 安裝
+1. 前往本專案的 [Releases](https://github.com/yourusername/WifiIndoorSystem/releases) 頁面
+2. 下載最新版本的 APK 檔案
+3. 在 Android 裝置上開啟檔案並安裝
+4. 允許來自未知來源的應用程式安裝（如果需要）
+
+### 方法二：從原始碼構建
+1. 複製專案存儲庫：
+   ```
+   git clone https://github.com/yourusername/WifiIndoorSystem.git
+   ```
+2. 使用 Android Studio 開啟專案
+3. 執行 Gradle 同步
+4. 使用 Run 按鈕安裝到已連接的裝置或模擬器上
+
+## 📋 使用說明
 
 ### 初次使用
 1. 啟動應用程式時，系統會請求必要的位置權限
@@ -98,44 +130,118 @@ Wi-Fi 室內定位系統是一個基於 Wi-Fi 訊號強度的室內位置識別�
 2. 在「編輯模式」下可直接點擊地圖新增參考點
 3. 在「檢視模式」下可查看參考點詳情
 
-### 匯出資料
-1. 點擊「室內定位」頁面右上角的儲存圖示
-2. 輸入要匯出的 JSON 檔案名稱
-3. 透過系統檔案選擇器選擇儲存位置
+### 匯出/匯入資料
+- **匯出**：點擊「室內定位」頁面右上角的儲存圖示，設定檔案名稱並選擇儲存位置
+- **匯入**：點擊右上角的下載圖示，選擇要匯入的 JSON 檔案
 
-### 匯入資料
-1. 點擊「室內定位」頁面右上角的下載圖示
-2. 點擊「選擇檔案」按鈕
-3. 使用系統檔案選擇器選擇要匯入的 JSON 檔案
-4. 等待資料匯入完成，成功後會顯示匯入的參考點數量
+## 🛠️ 技術架構
 
-## 🧩 專案結構
+### 開發技術
+- **程式語言**：Kotlin 1.8.0+
+- **UI 框架**：Jetpack Compose 與 Material Design 3
+- **資料儲存**：Room 資料庫 2.5.0+
+- **序列化**：Kotlinx Serialization 1.5.0+
+- **非同步處理**：Kotlin Coroutines 與 Flow
+- **地圖互動**：自訂 TouchImageView 實現
+- **依賴注入**：Hilt/Dagger
+- **單元測試**：JUnit, Mockito
 
-- **MainActivity.kt**：應用程式入口點和主要分頁結構
-- **IndoorPositioningScreen.kt**：室內定位功能的UI和邏輯
-- **WifiScanner.kt**：Wi-Fi掃描功能的UI和邏輯
-- **MapScreen.kt**：地圖顯示和參考點標記功能
-- **DataModels.kt**：
-  - ReferencePoint：參考點資料結構
-  - WifiReading：Wi-Fi讀數資料結構
-  - ReferencePointDatabase：參考點資料庫管理類
-  - CurrentPosition：當前位置資料結構
+### 主要程式結構
+```
+app/
+├── src/
+│   ├── main/
+│   │   ├── kotlin/com/example/wifiindoorsystem/
+│   │   │   ├── MainActivity.kt           # 應用入口點
+│   │   │   ├── ui/                       # UI 相關程式碼
+│   │   │   │   ├── theme/                # 主題設定
+│   │   │   │   ├── screens/              # 各畫面實現
+│   │   │   │   └── components/           # 共用元件
+│   │   │   ├── data/                     # 資料層
+│   │   │   │   ├── model/                # 資料模型
+│   │   │   │   ├── repository/           # 資料存取
+│   │   │   │   └── local/                # 本地數據源
+│   │   │   ├── domain/                   # 業務邏輯層
+│   │   │   │   ├── usecase/              # 使用案例
+│   │   │   │   └── algorithm/            # 定位演算法
+│   │   │   └── utils/                    # 通用工具類
+│   │   └── res/                          # 資源文件
+│   └── test/                             # 測試程式碼
+└── build.gradle                          # 構建配置
+```
+
+### 核心數據模型
+- **ReferencePoint**：參考點資料結構，包含位置與關聯的 Wi-Fi 讀數
+- **WifiReading**：Wi-Fi 訊號讀數，含 BSSID、SSID、訊號強度
+- **CurrentPosition**：當前位置資料結構，包含座標和準確度指標
 
 ## 📈 定位演算法
 
-本系統使用加權 k-NN (k-最近鄰) 演算法進行位置估算：
+本系統採用加權 k-NN (k-最近鄰) 演算法進行位置估算，具體實現如下：
 
-1. 收集當前環境的 Wi-Fi 訊號特徵
-2. 計算當前訊號與所有參考點訊號的相似度 (歐幾里德距離)
-3. 選擇相似度最高的 K 個參考點 (默認 K=5)
-4. 根據相似度為每個參考點分配權重
-5. 計算加權平均位置作為最終估算結果
-6. 根據權重分布計算位置準確度指標
+1. **信號收集**：掃描當前環境中可見的所有 Wi-Fi AP 的訊號強度 (RSSI)
+2. **相似度計算**：
+   ```
+   distance = √∑(current_RSSI_i - reference_RSSI_i)²
+   ```
+   其中，僅計算兩者共同可見的 AP，若某 AP 僅出現在一方，則設定預設差值
+3. **鄰近點選擇**：選擇距離最小的 K 個參考點 (預設 K=5)
+4. **權重分配**：使用反比權重計算：
+   ```
+   weight_i = (1/distance_i) / ∑(1/distance_j)
+   ```
+5. **位置估算**：
+   ```
+   estimated_x = ∑(weight_i * reference_x_i)
+   estimated_y = ∑(weight_i * reference_y_i)
+   ```
+6. **準確度評估**：根據權重分布和最小距離值計算可信度指標
+
+### 演算法優化
+- **異常值過濾**：移除訊號強度異常的讀數
+- **頻段權重**：不同頻段 (2.4GHz vs 5GHz) 的 AP 賦予不同權重
+- **時間衰減**：較舊的讀數影響力逐漸減弱
+- **移動平滑**：使用卡爾曼濾波器平滑位置變化
+
+## 💻 開發資訊
+
+### 開發環境設置
+1. Android Studio Flamingo 2022.2.1 或更新版本
+2. Gradle 8.0+
+3. JDK 17
+
+### 建議的 IDE 外掛
+- Kotlin Serialization IDE Support
+- Compose Multiplatform
+- Material Design 3 Theme Builder
+
+### 貢獻指南
+1. Fork 專案存儲庫
+2. 創建您的功能分支 (`git checkout -b feature/amazing-feature`)
+3. 提交您的更改 (`git commit -m 'Add some amazing feature'`)
+4. 推送到分支 (`git push origin feature/amazing-feature`)
+5. 開啟 Pull Request
 
 ## ⚠️ 注意事項
 
-- 此應用程式需要位置權限才能掃描Wi-Fi網路，這是Android系統的要求
-- Wi-Fi掃描功能可能會增加電池耗電量
-- 參考點資料僅儲存在裝置上，建議定期匯出以防資料遺失
-- 定位精度受參考點數量和Wi-Fi環境穩定性影響
-- 建議在每個區域標記足夠數量的參考點，以提高定位準確度
+- 此應用程式需要位置權限才能掃描 Wi-Fi 網路，這是 Android 系統的限制
+- Wi-Fi 掃描頻率受 Android 系統限制，在 Android 9+ 上每 30 秒最多掃描 4 次
+- 定位精度受環境中 Wi-Fi AP 數量和分布影響
+- 大型金屬物體、密集人群可能影響 Wi-Fi 訊號，導致定位誤差增加
+- 參考點資料僅儲存在裝置上，建議定期匯出備份
+- 耗電量優化：建議在不需要定位時關閉背景掃描
+
+## 📜 授權條款
+
+本專案採用 MIT 授權條款 - 詳情請參閱 [LICENSE](LICENSE) 文件。
+
+---
+
+## 📬 聯絡資訊
+
+如有問題或建議，請透過以下方式聯絡：
+
+- 專案維護者：[您的名字](mailto:your.email@example.com)
+- 專案問題追蹤：[GitHub Issues](https://github.com/yourusername/WifiIndoorSystem/issues)
+
+[![Star this repo](https://img.shields.io/github/stars/yourusername/WifiIndoorSystem.svg?style=social)](https://github.com/yourusername/WifiIndoorSystem)
