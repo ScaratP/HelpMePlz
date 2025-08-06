@@ -241,7 +241,7 @@ app/
 
 如有問題或建議，請透過以下方式聯絡：
 
-- 專案維護者：[您的名字](mailto:your.email@example.com)
-- 專案問題追蹤：[GitHub Issues](https://github.com/yourusername/WifiIndoorSystem/issues)
+- 專案維護者：[SP](mailto:wsp617617@gmail.com)
+- 專案問題追蹤：[GitHub Issues](https://github.com/ScaratP/HelpMePlz/issues)
 
-[![Star this repo](https://img.shields.io/github/stars/yourusername/WifiIndoorSystem.svg?style=social)](https://github.com/yourusername/WifiIndoorSystem)
+[![Star this repo](https://img.shields.io/github/stars/ScaratP/HelpMePlz.svg?style=social)](https://github.com/ScaratP/HelpMePlz)
