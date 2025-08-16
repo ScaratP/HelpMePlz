@@ -316,14 +316,14 @@ fun QuickStartContent() {
         
         StepItem(
             number = 2,
-            title = "新增參考點",
-            description = "切換到「標記掃描」分頁，使用互動式地圖添加參考點並收集 Wi-Fi 訊號"
+            title = "新增&掃描參考點",
+            description = "選擇當前位置地圖並放大確認位置 → 將右上角切換成編輯新增模式 → 點擊當前位置選擇區域和掃描次數 → 耐心等待掃描完成"
         )
         
         StepItem(
             number = 3,
-            title = "使用室內定位",
-            description = "添加足夠的參考點後，系統將自動比對目前環境的 Wi-Fi 訊號，確定您的位置"
+            title = "參考點統計與匯出",
+            description = "確認資料為最新 → 按下匯出參考點資料 → 確認檔案儲存位置和檔名 → 儲存備份"
         )
         
         Spacer(modifier = Modifier.height(16.dp))
@@ -361,13 +361,13 @@ fun MapGuideContent() {
         FeatureItem(
             icon = Icons.Outlined.Edit,
             title = "編輯模式",
-            description = "開啟「編輯模式」開關，即可透過點擊地圖添加新參考點"
+            description = "開啟右上角的「編輯模式」開關，即可透過點擊地圖添加新參考點"
         )
         
         FeatureItem(
             icon = Icons.Outlined.Visibility,
             title = "檢視模式",
-            description = "關閉編輯模式時，點擊參考點可查看詳細資訊"
+            description = "關閉右上角編輯模式時，點擊參考點可查看詳細資訊"
         )
         
         Spacer(modifier = Modifier.height(16.dp))
@@ -388,34 +388,86 @@ fun MapGuideContent() {
 fun ReferencePointGuideContent() {
     Column(modifier = Modifier.fillMaxWidth()) {
         Text(
-            text = "參考點是定位系統的基礎，它們記錄了特定位置的 Wi-Fi 訊號特徵：",
+            text = "參考點是定位系統的基礎，以下是完整的管理流程：",
             style = MaterialTheme.typography.bodyLarge
         )
         
         Spacer(modifier = Modifier.height(16.dp))
         
-        FeatureItem(
-            icon = Icons.Outlined.Add,
-            title = "新增參考點",
-            description = "有兩種方式新增參考點：從地圖直接點擊或在室內定位頁面輸入座標"
+        // 新增&掃描參考點區段
+        Text(
+            text = "新增&掃描參考點",
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary
         )
         
-        FeatureItem(
-            icon = Icons.Outlined.SignalWifi4Bar,
-            title = "收集 Wi-Fi 訊號",
-            description = "建立參考點後，系統會掃描並記錄目前環境的 Wi-Fi 訊號特徵"
+        Spacer(modifier = Modifier.height(8.dp))
+        
+        StepItem(
+            number = 1,
+            title = "選擇當前位置地圖並放大地圖確認當前位置",
+            description = "在「標記掃描」分頁中選擇對應的樓層地圖，使用縮放手勢放大地圖以準確定位"
         )
         
-        FeatureItem(
-            icon = Icons.Outlined.Refresh,
-            title = "多次掃描",
-            description = "您可設定掃描次數，提高參考點的數據準確性"
+        StepItem(
+            number = 2,
+            title = "將右上角檢視模式切換成編輯新增",
+            description = "開啟右上角的「編輯新增」開關，此時地圖底部會顯示編輯模式提示"
         )
         
-        FeatureItem(
-            icon = Icons.Outlined.AddCircleOutline,
-            title = "追加模式",
-            description = "可在不刪除現有數據的情況下，為參考點添加新的 Wi-Fi 測量值"
+        StepItem(
+            number = 3,
+            title = "點擊當前位置並選擇區域和掃描次數",
+            description = "點擊地圖上的目標位置，選擇區域（只有1、2、3樓需要選擇a、b、c區域）和掃描次數"
+        )
+        
+        StepItem(
+            number = 4,
+            title = "耐心等待掃描完成",
+            description = "系統會顯示掃描進度，請保持在相同位置直到掃描完成，避免移動影響數據準確性"
+        )
+        
+        Spacer(modifier = Modifier.height(24.dp))
+        
+        // 參考點統計與匯出區段
+        Text(
+            text = "參考點統計與匯出",
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.secondary
+        )
+        
+        Spacer(modifier = Modifier.height(8.dp))
+        
+        StepItem(
+            number = 1,
+            title = "確認資料為最新資料",
+            description = "在「統計與匯出」分頁中，點擊重新整理按鈕確保顯示的是最新的參考點統計數據"
+        )
+        
+        StepItem(
+            number = 2,
+            title = "按下匯出參考點資料",
+            description = "點擊「匯出參考點資料」按鈕，系統將開啟檔案選擇器"
+        )
+        
+        StepItem(
+            number = 3,
+            title = "確認檔案儲存位置（預設資料夾為下載）",
+            description = "選擇合適的儲存位置，預設會指向下載資料夾，您也可以選擇其他位置"
+        )
+        
+        StepItem(
+            number = 4,
+            title = "確認檔名（預設檔名為wifi_reference_points_當下日期_時間）",
+            description = "檔名會自動包含時間戳記，格式為 wifi_reference_points_yyyyMMdd_HHmmss.json"
+        )
+        
+        StepItem(
+            number = 5,
+            title = "都確認沒問題後儲存",
+            description = "檢查無誤後點擊儲存"
         )
         
         Spacer(modifier = Modifier.height(16.dp))
@@ -439,7 +491,7 @@ fun ReferencePointGuideContent() {
                 Spacer(modifier = Modifier.width(8.dp))
                 
                 Text(
-                    text = "為獲得最佳結果，建議在每個參考點收集 3-5 次掃描資料，並站在相同位置進行掃描",
+                    text = "特別注意：1、2、3樓地圖需要選擇區域（a、b、c），其他樓層地圖已內建區域標識。建議定期匯出資料作為備份。",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSecondaryContainer
                 )
@@ -461,19 +513,7 @@ fun WifiScanGuideContent() {
         FeatureItem(
             icon = Icons.Outlined.NetworkWifi,
             title = "自動掃描",
-            description = "應用程式會定期掃描環境中的 Wi-Fi 訊號，更新目前位置估算"
-        )
-        
-        FeatureItem(
-            icon = Icons.Outlined.Update,
-            title = "手動更新",
-            description = "點擊頂部工具列的更新按鈕可立即觸發新的掃描"
-        )
-        
-        FeatureItem(
-            icon = Icons.Outlined.BarChart,
-            title = "統計分析",
-            description = "參考點詳情頁面提供多種數據視圖：平均值、最大值、最小值等"
+            description = "應用程式會定期掃描環境中的 Wi-Fi 訊號"
         )
         
         Spacer(modifier = Modifier.height(16.dp))
@@ -517,21 +557,6 @@ fun FAQContent() {
         FAQItem(
             question = "如何提高定位準確度？",
             answer = "在使用環境中設置更多參考點、增加每個參考點的掃描次數，並確保參考點分佈均勻，都能有效提高定位準確度。"
-        )
-        
-        FAQItem(
-            question = "如何在不同裝置間同步參考點資料？",
-            answer = "使用匯出功能將參考點資料保存為 JSON 檔案，然後在其他裝置上使用匯入功能載入該檔案。"
-        )
-        
-        FAQItem(
-            question = "Wi-Fi 環境變化會影響定位準確度嗎？",
-            answer = "是的，如果 Wi-Fi 網路拓撲發生重大變化（例如新增或移除 Wi-Fi 路由器），建議重新收集參考點資料。"
-        )
-        
-        FAQItem(
-            question = "如何判斷定位結果的準確度？",
-            answer = "系統會根據 Wi-Fi 訊號匹配度計算準確度指標，並以不同顏色（綠色、黃色、紅色）在地圖上顯示，分別代表高、中、低準確度。"
         )
     }
 }

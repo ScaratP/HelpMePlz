@@ -474,7 +474,7 @@ fun MapScreen(
                             }
                             
                             // 設置最大/最小縮放級別
-                            maxZoom = 4f
+                            maxZoom = 10f
                             minZoom = 0.8f
                             
                             // 優化觸控事件處理
@@ -1020,12 +1020,6 @@ fun MapScreen(
                                         repeat(scanCount) { index ->
                                             scanProgress = index + 1
                                             
-                                            // 通知用戶正在掃描
-                                            snackbarHostState.showSnackbar(
-                                                message = "正在收集Wi-Fi數據 (${scanProgress}/${scanTotal})...",
-                                                duration = SnackbarDuration.Short
-                                            )
-                                            
                                             // 確保有位置權限
                                             val locationPermissionGranted = ContextCompat.checkSelfPermission(
                                                 context, 
@@ -1037,7 +1031,7 @@ fun MapScreen(
                                                     // 開始掃描
                                                     @Suppress("DEPRECATION")
                                                     wifiManager.startScan()
-                                                    delay(300) // 等待掃描結果
+                                                    delay(150) // 縮短等待時間從300ms到100ms
                                                     
                                                     // 獲取掃描結果
                                                     @Suppress("DEPRECATION")
@@ -1075,8 +1069,15 @@ fun MapScreen(
                                                 ).show()
                                             }
                                             
-                                            delay(300)  // 掃描間隔
+                                            // 縮短掃描間隔從300ms到150ms，但最後一次掃描不需要延遲
+                                            if (index < scanCount - 1) {
+                                                delay(150)
+                                            }
                                         }
+                                        
+                                        // 立即停止掃描指示器
+                                        isScanning = false
+                                        scanProgress = 0
                                         
                                         // 更新參考點，添加WiFi讀數
                                         if (wifiReadings.isNotEmpty()) {
@@ -1090,18 +1091,23 @@ fun MapScreen(
                                             
                                             snackbarHostState.showSnackbar(
                                                 "已新增參考點: $name 並收集了 ${wifiReadings.size} 個Wi-Fi訊號",
-                                                duration = SnackbarDuration.Long
+                                                duration = SnackbarDuration.Short // 改為短時間顯示
                                             )
                                         } else {
                                             snackbarHostState.showSnackbar(
                                                 "已新增參考點: $name，但未收集到Wi-Fi訊號",
-                                                duration = SnackbarDuration.Long
+                                                duration = SnackbarDuration.Short
                                             )
                                         }
                                     } catch (e: Exception) {
+                                        // 確保錯誤時也停止掃描指示器
+                                        isScanning = false
+                                        scanProgress = 0
                                         snackbarHostState.showSnackbar("新增參考點失敗: ${e.localizedMessage}")
                                     } finally {
+                                        // 確保finally塊中重置所有相關狀態
                                         isScanning = false
+                                        scanProgress = 0
                                         tapPosition = null
                                         xInput = ""
                                         yInput = ""

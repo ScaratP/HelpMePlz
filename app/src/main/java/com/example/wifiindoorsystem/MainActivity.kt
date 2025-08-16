@@ -168,48 +168,6 @@ fun WifiAppTabNavigation() {
             icon = Icons.Default.Help,
             screen = { GuideScreen() }
         ),
-        //        TabItem(
-//            title = "參考點總覽",
-//            icon = Icons.Default.LocationOn,
-//            screen = {
-//                IndoorPositioningScreen(
-//                    onPositionChange = { position, mapImage ->
-//                        // 當位置更新時，更新共享狀態
-//                        sharedCurrentPosition = position
-//                        sharedCurrentMapImage = mapImage
-//                        // 如果目前在即時位置分頁，也通知它更新
-//                        if (selectedTabIndex == 1) {
-//                        }
-//                    },
-//                    currentPosition = sharedCurrentPosition,
-//                    currentMapImage = sharedCurrentMapImage,
-//                    onNavigateToCurrentLocationTab = {
-//                        selectedTabIndex = 1 // "即時位置" 分頁的索引為 1
-//                    }
-//                )
-//            }
-//        ),
-//        // 新增即時位置分頁
-//        TabItem(
-//            title = "即時位置",
-//            icon = Icons.Default.MyLocation,
-//            screen = {
-//                CurrentLocationScreen(
-//                    currentPosition = sharedCurrentPosition,
-//                    currentMapImage = sharedCurrentMapImage,
-//                    onPositionChange = { position, mapImage ->
-//                        // 當 CurrentLocationScreen 刷新時，也更新共享狀態
-//                        sharedCurrentPosition = position
-//                        sharedCurrentMapImage = mapImage
-//                    }
-//                )
-//            }
-//        ),
-//        TabItem(
-//            title = "Wi-Fi 掃描",
-//            icon = Icons.Default.Wifi,
-//            screen = { WifiScannerScreen() }
-//        ),
         TabItem(
             title = "標記掃描",
             icon = Icons.Default.Map,

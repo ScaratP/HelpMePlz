@@ -260,7 +260,7 @@ fun IndoorPositioningScreen(
 
             delay(300)
             isScanning = false
-            delay(1000)
+            delay(500) // 縮短從1000ms到500ms
         }
     }
 
