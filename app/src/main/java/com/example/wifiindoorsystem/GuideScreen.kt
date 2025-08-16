@@ -64,7 +64,7 @@ fun GuideScreen() {
                             tint = MaterialTheme.colorScheme.onPrimary
                         )
                         Spacer(modifier = Modifier.width(12.dp))
-                        Text("使用說明導覽") 
+                        Text("TTU NEXTDOOR - 使用說明") 
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -212,7 +212,7 @@ fun WelcomeSection() {
         Spacer(modifier = Modifier.height(16.dp))
         
         Text(
-            text = "Wi-Fi 室內定位系統",
+            text = "TTU NEXTDOOR",
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
@@ -222,7 +222,7 @@ fun WelcomeSection() {
         Spacer(modifier = Modifier.height(8.dp))
         
         Text(
-            text = "這個應用程式利用環境中的 Wi-Fi 訊號特徵建立「電子指紋」，實現高精度的室內位置識別",
+            text = "TTU NEXTDOOR 利用環境中的 Wi-Fi 訊號特徵建立「電子指紋」，實現高精度的室內位置識別",
             fontSize = 16.sp,
             textAlign = TextAlign.Center,
             color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.8f)
@@ -302,7 +302,7 @@ fun GuideSection(
 fun QuickStartContent() {
     Column(modifier = Modifier.fillMaxWidth()) {
         Text(
-            text = "開始使用 Wi-Fi 室內定位系統只需幾個簡單步驟：",
+            text = "開始使用 TTU NEXTDOOR 只需幾個簡單步驟：",
             style = MaterialTheme.typography.bodyLarge
         )
         
@@ -340,7 +340,7 @@ fun QuickStartContent() {
 fun MapGuideContent() {
     Column(modifier = Modifier.fillMaxWidth()) {
         Text(
-            text = "互動式地圖是本系統的核心功能之一，讓您可以直觀地管理參考點：",
+            text = "互動式地圖是 TTU NEXTDOOR 的核心功能之一，讓您可以直觀地管理參考點：",
             style = MaterialTheme.typography.bodyLarge
         )
         
@@ -555,8 +555,8 @@ fun FAQContent() {
         )
         
         FAQItem(
-            question = "如何提高定位準確度？",
-            answer = "在使用環境中設置更多參考點、增加每個參考點的掃描次數，並確保參考點分佈均勻，都能有效提高定位準確度。"
+            question = "如何提高 TTU NEXTDOOR 的定位準確度？",
+            answer = "在使用環境中設置更多參考點、增加每個參考點的掃描次數，並確保參考點分佈均勻，都能有效提高 TTU NEXTDOOR 的定位準確度。"
         )
     }
 }

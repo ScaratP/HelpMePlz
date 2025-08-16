@@ -118,7 +118,7 @@ fun GlobalPermissionRequiredScreen(
                 )
                 Spacer(modifier = Modifier.height(12.dp))
                 Text(
-                    text = "Wi-Fi定位系統需要位置權限才能掃描周圍的Wi-Fi網路，請授予位置權限以繼續使用應用程式。",
+                    text = "TTU NEXTDOOR 需要位置權限才能掃描周圍的Wi-Fi網路，請授予位置權限以繼續使用應用程式。",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     textAlign = TextAlign.Center

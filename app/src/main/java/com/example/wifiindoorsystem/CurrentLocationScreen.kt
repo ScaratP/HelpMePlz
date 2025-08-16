@@ -213,14 +213,14 @@ fun CurrentLocationScreen(
                             tint = MaterialTheme.colorScheme.onPrimary
                         )
                         Spacer(modifier = Modifier.width(12.dp))
-                        Text("即時位置")
+                        Text("TTU NEXTDOOR - 即時位置")
                     }
                 },
                 actions = {
                     IconButton(onClick = {
                         // 呼叫 onPositionChange 以觸發狀態刷新/重傳
                         onPositionChange(currentPosition, currentMapImage)
-                        Toast.makeText(context, "位置已刷新", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "TTU NEXTDOOR 位置已刷新", Toast.LENGTH_SHORT).show()
                     }) {
                         Icon(
                             imageVector = Icons.Default.Refresh,

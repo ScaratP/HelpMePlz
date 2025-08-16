@@ -307,7 +307,7 @@ fun MapScreen(
         topBar = {
             Column {
                 TopAppBar(
-                    title = { Text("參考點標記掃描") },
+                    title = { Text("參考點標記") },
                     colors = TopAppBarDefaults.topAppBarColors( // Explicitly set TopAppBar colors
                         containerColor = MaterialTheme.colorScheme.primary,
                         titleContentColor = MaterialTheme.colorScheme.onPrimary,
@@ -1071,7 +1071,7 @@ fun MapScreen(
                                             
                                             // 縮短掃描間隔從300ms到150ms，但最後一次掃描不需要延遲
                                             if (index < scanCount - 1) {
-                                                delay(150)
+                                                delay(300)
                                             }
                                         }
                                         

@@ -252,9 +252,9 @@ fun IndoorPositioningScreen(
                         }
                     }
                 } catch (se: SecurityException) {
-                    Toast.makeText(context, "需要位置權限才能進行掃描", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "TTU NEXTDOOR 需要位置權限才能進行掃描", Toast.LENGTH_SHORT).show()
                 } catch (e: Exception) {
-                    Toast.makeText(context, "掃描出現錯誤: ${e.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "TTU NEXTDOOR 掃描出現錯誤: ${e.message}", Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -408,7 +408,7 @@ fun IndoorPositioningScreen(
                             tint = MaterialTheme.colorScheme.onPrimary
                         )
                         Spacer(modifier = Modifier.width(12.dp))
-                        Text("室內定位參考點")
+                        Text("TTU NEXTDOOR - 室內定位")
                     }
                 },
                 actions = {

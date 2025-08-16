@@ -1,4 +1,4 @@
-# Wi-Fi 室內定位系統 📡
+# TTU NEXTDOOR 📡
 
 ![Android](https://img.shields.io/badge/Platform-Android-3DDC84?logo=android)
 ![Kotlin](https://img.shields.io/badge/Language-Kotlin-0095D5?logo=kotlin)
@@ -21,7 +21,7 @@
 
 ## 📱 專案概述
 
-Wi-Fi 室內定位系統是一款專為室內環境設計的高精度定位應用。在 GPS 訊號受限的室內空間中，本系統透過分析周圍 Wi-Fi 網路的訊號特徵建立「電子指紋地圖」，實現精確的室內位置識別。
+TTU NEXTDOOR 是一款專為室內環境設計的高精度定位應用。在 GPS 訊號受限的室內空間中，本系統透過分析周圍 Wi-Fi 網路的訊號特徵建立「電子指紋地圖」，實現精確的室內位置識別。
 
 適用場景：
 - 大型商場及展覽館導航
@@ -80,7 +80,7 @@ Wi-Fi 室內定位系統是一款專為室內環境設計的高精度定位應�
 ## 📥 安裝指南
 
 ### 方法一：從 Release 安裝
-1. 前往本專案的 [Releases](https://github.com/yourusername/WifiIndoorSystem/releases) 頁面
+1. 前往本專案的 [Releases](https://github.com/yourusername/TTU-NEXTDOOR/releases) 頁面
 2. 下載最新版本的 APK 檔案
 3. 在 Android 裝置上開啟檔案並安裝
 4. 允許來自未知來源的應用程式安裝（如果需要）
@@ -88,7 +88,7 @@ Wi-Fi 室內定位系統是一款專為室內環境設計的高精度定位應�
 ### 方法二：從原始碼構建
 1. 複製專案存儲庫：
    ```
-   git clone https://github.com/yourusername/WifiIndoorSystem.git
+   git clone https://github.com/yourusername/TTU-NEXTDOOR.git
    ```
 2. 使用 Android Studio 開啟專案
 3. 執行 Gradle 同步

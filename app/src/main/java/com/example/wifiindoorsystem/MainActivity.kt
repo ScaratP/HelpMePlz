@@ -58,7 +58,7 @@ class MainActivity : ComponentActivity() {
             WifiIndoorSystemTheme {
                 // 使用權限包裝器包裝整個應用程式內容
                 LocationPermissionWrapper {
-                    // 應用程式主內容
+                    // TTU NEXTDOOR 主內容
                     Surface(
                         modifier = Modifier.fillMaxSize(),
                         color = MaterialTheme.colorScheme.background
@@ -88,13 +88,13 @@ class MainActivity : ComponentActivity() {
                     
                     Toast.makeText(
                         this,
-                        "已成功匯出參考點資料",
+                        "已成功匯出 TTU NEXTDOOR 參考點資料",
                         Toast.LENGTH_LONG
                     ).show()
                 } catch (e: Exception) {
                     Toast.makeText(
                         this,
-                        "匯出失敗: ${e.localizedMessage}",
+                        "TTU NEXTDOOR 匯出失敗: ${e.localizedMessage}",
                         Toast.LENGTH_LONG
                     ).show()
                 }
