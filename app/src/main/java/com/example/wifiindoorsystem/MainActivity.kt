@@ -179,6 +179,11 @@ fun WifiAppTabNavigation() {
                 ) 
             }
         ),
+        TabItem(
+            title = "Wi-Fi Scanner",
+            icon = Icons.Default.Wifi,
+            screen = { WifiScannerScreen() }
+        ),
         // 新增統計分頁
         TabItem(
             title = "統計&匯出",
